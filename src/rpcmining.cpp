@@ -16,6 +16,7 @@
 #include "pow.h"
 #include "rpcserver.h"
 #include "util.h"
+#include "consensus/consensus.h"
 #ifdef ENABLE_WALLET
 #include "db.h"
 #include "wallet.h"
@@ -30,6 +31,10 @@
 
 using namespace json_spirit;
 using namespace std;
+
+
+bool CHAIN_CHOPPING = true;
+
 
 /**
  * Return average network hashes per second based on the last 'lookup' blocks,
@@ -181,6 +186,8 @@ Value setgenerate(const Array& params, bool fHelp)
                 LOCK(cs_main);
                 IncrementExtraNonce(pblock, chainActive.Tip(), nExtraNonce);
             }
+
+
             while (!CheckProofOfWork(pblock->GetPoWHash(), pblock->nBits)) {
                 // Yes, there is a chance every nonce could fail to satisfy the -regtest
                 // target -- 1 in 2^(2^32). That ain't gonna happen.
@@ -442,6 +449,7 @@ Value getblocktemplate(const Array& params, bool fHelp)
     if (vNodes.empty())
         throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Philscurrency is not connected!");
 
+
     if (IsInitialBlockDownload())
         throw JSONRPCError(RPC_CLIENT_IN_INITIAL_DOWNLOAD, "Philscurrency is downloading blocks...");
 
@@ -500,6 +508,12 @@ Value getblocktemplate(const Array& params, bool fHelp)
             throw JSONRPCError(RPC_CLIENT_NOT_CONNECTED, "Shutting down");
         // TODO: Maybe recheck connections/IBD and (if something wrong) send an expires-immediately template to stop miners?
     }
+
+/*
+    printf("[hashTarget.GetHex()    ]: %l" , uint256().SetCompact(pblock->nBits));
+    printf("[(double)GetDifficulty()]: %l", (double)GetDifficulty());
+*/
+
 
     // Update block
     static CBlockIndex* pindexPrev;
