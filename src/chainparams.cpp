@@ -58,13 +58,22 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
         (  5, uint256("0xdf35912a3c63901288128cfb69293d7129a7cd58a013a92b329393d9ff31d614"))
         (  315, uint256("0xb44c50fdf4d2ba0a2e123ca5eb0050fbb165ce9660547cdbee060be74161f0f2"))
 	(  33194, uint256("0xda5864067b12c04f3fb0adb3d3331b4fe3b4aafb5e7e9570273fe6a9296aae5b"))
+	(  40000, uint256("0xc1ac27dfcebdaed00b15c3cc3065a5226ff5a13cc7da7d5e7a78c27af53baef8"))
+	(  50000, uint256("0xba59ee941af7fc6845c4f3c77c6f606d467a203de1814776491f4cee573db787"))
+	(  60000, uint256("0x73ef339fb03e7aafe50bcf0a0688c255f4ecf56cd833c2372efd376d97710f02"))
+	(  70000, uint256("0xdf2b7358c01bd7a3f929064cbf8c99b8f9fbdef40cdecb4cbae9ab6b3be04c84"))
+	(  80000, uint256("0x1936596454814baaf05b36b18b35d9cf9279713ad3a1ce1a171896b6056481b0"))
+	(  90000, uint256("0x39f577949ab56483eaa79e3f7ed4c791d136a4a6ab99ceebde2ceaa45e9e8abd"))
+	(  100000, uint256("0x9598de5bf8c1f3c381ad080109272ff6735460f6a4a31b661deb111a11f66738"))
+	(  110000, uint256("0xdee33939bfc358414150952169cd53d66ddad4068e63739dfac3d90706cedc09"))
+	(  120000, uint256("0x30b31153fead2687b57e1f4b1cf77a0e2f4cfd086d4e3375ec49684ae0cdc2fe"))
         ;
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
-        1512803778, // * UNIX timestamp of last checkpoint block
-        40093,   // * total number of transactions between genesis and last checkpoint
+        0, // * UNIX timestamp of last checkpoint block
+        0,   // * total number of transactions between genesis and last checkpoint
                     //   (the tx=... number in the SetBestChain debug.log lines)
-        750     // * estimated number of transactions per day after checkpoint
+        0     // * estimated number of transactions per day after checkpoint
     };
 
 static Checkpoints::MapCheckpoints mapCheckpointsTestnet =
@@ -134,10 +143,12 @@ public:
         assert(hashGenesisBlock == uint256("0xe37bd4c37400b27f681015c323c30ac328f023bcfd0baf3610a7f8315f1beccf"));
         assert(genesis.hashMerkleRoot == uint256("0xff77c540c7869f67f52fd9a811c7c0bd269b316a9f293e51470c5e0883e251d2"));
 
-        vSeeds.push_back(CDNSSeedData("philscurrency.org", "dnsseed1.philscurrency.org"));
-        vSeeds.push_back(CDNSSeedData("philscurrency.org", "dnsseed2.philscurrency.org"));
-        vSeeds.push_back(CDNSSeedData("philscurrency.org", "dnsseed3.philscurrency.org"));
-        vSeeds.push_back(CDNSSeedData("philscurrency.org", "explorer.philscurrency.org"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed1.philscurrency.org"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed2.philscurrency.org"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed3.philscurrency.org"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed4.philscurrency.org"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed5.philscurrency.org"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed6.philscurrency.org"));
         
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(56);
