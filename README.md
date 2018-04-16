@@ -2,7 +2,7 @@ Philscurrency Core
 ===============================
 
 
-https://www.philscurrency.org
+https://www.savingphils.com
 
 Copyright (c) 2009-2015 Bitcoin Core Developers
 
@@ -11,6 +11,8 @@ Copyright (c) 2011-2015 Litecoin Core Developers
 Copyright (c) 2014-2016 Dash Core Developers
 
 Copyright (c) 2015-2017 Philscurrency Developers
+
+Copyright (c) 2018 SavingPhils Developers
 
 
 What is Philscurrency?
@@ -23,7 +25,7 @@ are carried out collectively by the network. Philscurrency Core is the name of o
 source software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Philscurrency Core software, see https://www.philscurrency.org
+the Philscurrency Core software, see https://www.savingphils.com
 
 
 License
@@ -47,7 +49,7 @@ match the project's coding conventions (see [doc/coding.md](doc/coding.md)) or a
 controversial.
 
 The `master` branch is regularly built and tested, but is not guaranteed to be
-completely stable. [Tags](https://github.com/philscurrency/philscurrency/tags) are created
+completely stable. [Tags](https://github.com/SavingPhils/philscurrency/tags) are created
 regularly to indicate new official, stable release versions of Philscurrency.
 
 
