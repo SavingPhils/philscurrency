@@ -143,12 +143,12 @@ public:
         assert(hashGenesisBlock == uint256("0xe37bd4c37400b27f681015c323c30ac328f023bcfd0baf3610a7f8315f1beccf"));
         assert(genesis.hashMerkleRoot == uint256("0xff77c540c7869f67f52fd9a811c7c0bd269b316a9f293e51470c5e0883e251d2"));
 
-        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed1.philscurrency.org"));
-        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed2.philscurrency.org"));
-        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed3.philscurrency.org"));
-        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed4.philscurrency.org"));
-        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed5.philscurrency.org"));
-        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed6.philscurrency.org"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed1.savingphils.com"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed2.savingphils.com"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed3.savingphils.com"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed4.savingphils.com"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed5.savingphils.com"));
+        vSeeds.push_back(CDNSSeedData("savingphils.com", "dnsseed6.savingphils.com"));
         
 
         base58Prefixes[PUBKEY_ADDRESS] = list_of(56);
@@ -161,7 +161,7 @@ public:
 
         fRequireRPCPassword = true;
         fMiningRequiresPeers = true;
-        fAllowMinDifficultyBlocks = false;
+        fAllowMinDifficultyBlocks = true;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
