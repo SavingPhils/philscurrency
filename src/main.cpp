@@ -4277,6 +4277,15 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         else
             pfrom->fRelayTxes = true;
 
+
+        // Check for Examinationcoin client and ban immediately if connected
+        if (pfrom->cleanSubVer.startsWith("Examination"))
+        {
+            Misbehaving(pfrom->GetId(), 100);
+            return false;
+        }
+
+
         // Disconnect if we connected to ourself
         if (nNonce == nLocalHostNonce && nNonce > 1)
         {
