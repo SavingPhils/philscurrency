@@ -4282,7 +4282,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         if (pfrom->cleanSubVer.substr(0, 11) == "Examination")
         {
             Misbehaving(pfrom->GetId(), 100);
-            return false;
+            pfrom->fDisconnect = true;
+            return true;
+
         }
 
 
