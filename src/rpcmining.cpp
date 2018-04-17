@@ -509,10 +509,6 @@ Value getblocktemplate(const Array& params, bool fHelp)
         // TODO: Maybe recheck connections/IBD and (if something wrong) send an expires-immediately template to stop miners?
     }
 
-/*
-    printf("[hashTarget.GetHex()    ]: %l" , uint256().SetCompact(pblock->nBits));
-    printf("[(double)GetDifficulty()]: %l", (double)GetDifficulty());
-*/
 
 
     // Update block

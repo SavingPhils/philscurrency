@@ -13,7 +13,7 @@
  * for both philscurrencyd and philscurrency-qt, to make it harder for attackers to
  * target servers or GUI users specifically.
  */
-const std::string CLIENT_NAME("Philscurrency");
+const std::string CLIENT_NAME("SavingPhils");
 
 /**
  * Client version number

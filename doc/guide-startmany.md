@@ -137,7 +137,7 @@ I usually confirm that remote is on the correct block by issuing:
 
 ```philscurrencyd getinfo```
 
-And compare with the official explorer at http://explorer.philscurrency.org
+And compare with the official explorer at http://explorer.savingphils.com
 
 ### Local
 
