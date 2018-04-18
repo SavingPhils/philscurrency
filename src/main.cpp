@@ -4279,7 +4279,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
 
         // Check for Examinationcoin client and ban immediately if connected
-        if (pfrom->cleanSubVer.substr(0, 12) == "/Examination"  )
+        if (pfrom->cleanSubVer.substr(0, 12) == "/Examination" || pfrom->cleanSubVer.substr(0, 20) == "/philscurrencyseeder" )
         {
             Misbehaving(pfrom->GetId(), 100);
 
