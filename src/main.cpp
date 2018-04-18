@@ -2992,7 +2992,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     int nHeight = pindexPrev->nHeight+1;
 
     // Check proof of work
-    if ((!Params().SkipProofOfWorkCheck()) &&
+    if ((!Params().SkipProofOfWorkCheck() && (nHeight != FORK_BLOCK)) &&
        (block.nBits != GetNextWorkRequired(pindexPrev, &block)))
         return state.DoS(100, error("%s : incorrect proof of work", __func__),
                          REJECT_INVALID, "bad-diffbits");
