@@ -8,5 +8,3 @@
 
 
 
-/** Fork block number */
-int FORK_BLOCK = 126349;
