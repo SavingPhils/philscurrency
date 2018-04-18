@@ -27,6 +27,10 @@
 #include "spork.h"
 #include "utilmoneystr.h"
 
+#include "consensus/consensus.h"
+
+
+
 #include <sstream>
 
 #include <boost/algorithm/string/replace.hpp>
