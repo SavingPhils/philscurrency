@@ -185,6 +185,7 @@ libbitcoin_server_a_SOURCES = \
   merkleblock.cpp \
   miner.cpp \
   net.cpp \
+  consensus/consensus.cpp \
   noui.cpp \
   pow.cpp \
   rest.cpp \

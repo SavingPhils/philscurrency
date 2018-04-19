@@ -69,11 +69,6 @@ bool fAlerts = DEFAULT_ALERTS;
 
 
 
-/** Fork block number */
-int FORK_BLOCK = 126349;
-
-
-
 /** Fees smaller than this (in satoshi) are considered zero fee (for relaying and mining)
  * We are ~100 times smaller then bitcoin now (2015-06-23), set minRelayTxFee only 10 times higher
  * so it's still 10 times lower comparing to bitcoin.
@@ -3001,6 +2996,8 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     assert(pindexPrev);
 
     int nHeight = pindexPrev->nHeight+1;
+
+    softfork_init(nHeight, false);
 
     // Check proof of work
     if ((!Params().SkipProofOfWorkCheck() && (nHeight != FORK_BLOCK)) &&

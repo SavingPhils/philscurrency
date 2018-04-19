@@ -85,6 +85,8 @@ public:
     std::string MasternodePaymentPubKey() const { return strMasternodePaymentsPubKey; }
     int64_t StartMasternodePayments() const { return nStartMasternodePayments; }
     CBaseChainParams::Network NetworkID() const { return networkID; }
+
+
 protected:
     CChainParams() {}
 
@@ -120,6 +122,8 @@ protected:
     std::string strMasternodePaymentsPubKey;
     std::string strDarksendPoolDummyAddress;
     int64_t nStartMasternodePayments;
+
+
 };
 
 /** 
@@ -141,6 +145,13 @@ public:
 };
 
 
+class CModifiableMainParams {
+public:
+    //! Published setters to allow changing values in unit test cases
+    virtual void setAllowMinDifficultyBlocks(bool aAllowMinDifficultyBlocks)=0;
+};
+
+
 /**
  * Return the currently selected parameters. This won't change after app startup
  * outside of the unit tests.
@@ -152,6 +163,9 @@ CChainParams &Params(CBaseChainParams::Network network);
 
 /** Get modifiable network parameters (UNITTEST only) */
 CModifiableParams *ModifiableParams();
+
+/** Get modifiable network parameters (MAIN only) */
+CModifiableMainParams *ModifiableMainParams();
 
 /** Sets the params returned by Params() to those for the given network. */
 void SelectParams(CBaseChainParams::Network network);
