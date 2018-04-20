@@ -31,7 +31,4 @@ void softfork_init(int current_height, bool is_regtest)
         fork_softfork.enable();
         ModifiableMainParams()->setAllowMinDifficultyBlocks(true);
     }
-    if (current_height == FORK_BLOCK) {
-    	exit(0);
-    }
 }
