@@ -3002,7 +3002,7 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     // Check proof of work
     if ((!Params().SkipProofOfWorkCheck()
     		&& (nHeight != FORK_BLOCK)
-    		&& (nHeight < 992)
+    		&& (nHeight < 992) // skipping gap from 992 - 33193 (bad POW)
     		&& (nHeight > 33193)
 
     	) &&
