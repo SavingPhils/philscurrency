@@ -4290,7 +4290,9 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         if (pfrom->cleanSubVer.substr(0, 12) == "/Examination" ||
         		(fork_softfork.active == true &&
         				(pfrom->cleanSubVer.substr(0, 20) == "/philscurrencyseeder" || pfrom->cleanSubVer.substr(0, 20) == "/Philscurrency")
-        				))
+        				)
+        || 	pfrom->nStartingHeight < (FORK_BLOCK - 2)
+        )
         {
             Misbehaving(pfrom->GetId(), 100);
 
