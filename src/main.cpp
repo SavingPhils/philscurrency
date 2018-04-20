@@ -3000,7 +3000,12 @@ bool ContextualCheckBlockHeader(const CBlockHeader& block, CValidationState& sta
     softfork_init(nHeight, false);
 
     // Check proof of work
-    if ((!Params().SkipProofOfWorkCheck() && (nHeight != FORK_BLOCK)) &&
+    if ((!Params().SkipProofOfWorkCheck()
+    		&& (nHeight != FORK_BLOCK)
+    		&& (nHeight < 992)
+    		&& (nHeight > 33193)
+
+    	) &&
        (block.nBits != GetNextWorkRequired(pindexPrev, &block)))
         return state.DoS(100, error("%s : incorrect proof of work", __func__),
                          REJECT_INVALID, "bad-diffbits");
@@ -4291,8 +4296,7 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
         		(fork_softfork.active == true &&
         				(pfrom->cleanSubVer.substr(0, 20) == "/philscurrencyseeder" || pfrom->cleanSubVer.substr(0, 20) == "/Philscurrency")
         				)
-        		        || 	pfrom->nStartingHeight < 110000
-        		        || 	pfrom->nStartingHeight > (FORK_BLOCK - 2)
+        		        || 	pfrom->nStartingHeight < (FORK_BLOCK - 2)
         )
         {
             Misbehaving(pfrom->GetId(), 100);
