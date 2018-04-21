@@ -30,6 +30,5 @@ void softfork_init(int current_height, bool is_regtest)
         // we are beyond the fork point; use new rules
         fork_softfork.enable();
         ModifiableMainParams()->setAllowMinDifficultyBlocks(true);
-        exit(1);
     }
 }
