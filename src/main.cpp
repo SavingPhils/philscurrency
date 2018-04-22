@@ -3087,7 +3087,7 @@ bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state, CBloc
         return true;
     }
 
-    if (!CheckBlockHeader(block, state)|| (pindex->nHeight >= FORK_BLOCK))
+    if (!CheckBlockHeader(block, state))
         return false;
 
     // Get prev block index
@@ -3104,7 +3104,11 @@ bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state, CBloc
     if (!ContextualCheckBlockHeader(block, state, pindexPrev))
         return false;
 
-    if (pindex == NULL)
+    if (pindexPrev->nStatus & BLOCK_FAILED_MASK)
+        return state.DoS(100, error("%s : prev block invalid", __func__), REJECT_INVALID, "bad-prevblk");
+
+
+    if (pindex == NULL && (GetHeight() < FORK_BLOCK))
         pindex = AddToBlockIndex(block);
 
     if (ppindex)
