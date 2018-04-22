@@ -2877,7 +2877,22 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool f
 
 bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bool fCheckMerkleRoot)
 {
-    // These are checks that are independent of context.
+
+
+
+    CBlockIndex* pindexPrevFork = chainActive.Tip();
+    if(pindexPrevFork != NULL)
+    {
+		int nHeightFork = 0;
+		nHeightFork = pindexPrevFork->nHeight+1;
+		if(nHeightFork >= FORK_BLOCK){
+            return state.DoS(100, error("CheckBlock() : reached chain limit"),
+                             REJECT_INVALID, "bad-chaincap", true);
+
+		}
+    }
+
+	// These are checks that are independent of context.
 
     // Check that the header is valid (particularly PoW).  This is mostly
     // redundant with the call in AcceptBlockHeader.
