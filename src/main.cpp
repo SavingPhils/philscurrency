@@ -2878,19 +2878,19 @@ bool CheckBlockHeader(const CBlockHeader& block, CValidationState& state, bool f
 bool CheckBlock(const CBlock& block, CValidationState& state, bool fCheckPOW, bool fCheckMerkleRoot)
 {
 
-
-
-    CBlockIndex* pindexPrevFork = chainActive.Tip();
-    if(pindexPrevFork != NULL)
-    {
-		int nHeightFork = 0;
-		nHeightFork = pindexPrevFork->nHeight+1;
-		if(nHeightFork >= FORK_BLOCK){
-            return state.DoS(100, error("CheckBlock() : reached chain limit"),
-                             REJECT_INVALID, "bad-chaincap", true);
-
-		}
-    }
+//////// temp chain capper
+//
+//    CBlockIndex* pindexPrevFork = chainActive.Tip();
+//    if(pindexPrevFork != NULL)
+//    {
+//		int nHeightFork = 0;
+//		nHeightFork = pindexPrevFork->nHeight+1;
+//		if(nHeightFork >= FORK_BLOCK){
+//            return state.DoS(100, error("CheckBlock() : reached chain limit"),
+//                             REJECT_INVALID, "bad-chaincap", true);
+//
+//		}
+//    }
 
 	// These are checks that are independent of context.
 
@@ -3123,7 +3123,7 @@ bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state, CBloc
         return state.DoS(100, error("%s : prev block invalid", __func__), REJECT_INVALID, "bad-prevblk");
 
 
-    if (pindex == NULL && (GetHeight() < FORK_BLOCK))
+    if (pindex == NULL /*&& (GetHeight() < FORK_BLOCK)*/)
         pindex = AddToBlockIndex(block);
 
     if (ppindex)
