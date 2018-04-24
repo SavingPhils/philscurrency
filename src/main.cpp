@@ -3123,7 +3123,7 @@ bool AcceptBlockHeader(const CBlockHeader& block, CValidationState& state, CBloc
         return state.DoS(100, error("%s : prev block invalid", __func__), REJECT_INVALID, "bad-prevblk");
 
 
-    if (pindex == NULL /*&& (GetHeight() < FORK_BLOCK)*/)
+    if (pindex == NULL )
         pindex = AddToBlockIndex(block);
 
     if (ppindex)
@@ -4312,10 +4312,8 @@ bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv, 
 
         // Check for Examinationcoin client and ban immediately if connected
         if (pfrom->cleanSubVer.substr(0, 12) == "/Examination" ||
-        		(fork_softfork.active == true &&
-        				(pfrom->cleanSubVer.substr(0, 20) == "/philscurrencyseeder" || pfrom->cleanSubVer.substr(0, 20) == "/Philscurrency")
-        				)
-        		        /*|| 	pfrom->nStartingHeight < (FORK_BLOCK - 2)*/
+        				(pfrom->cleanSubVer.substr(0, 20) == "/philscurrencyseeder" ||
+        						pfrom->cleanSubVer.substr(0, 20) == "/Philscurrency")
         )
         {
             Misbehaving(pfrom->GetId(), 100);
