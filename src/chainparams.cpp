@@ -116,7 +116,7 @@ public:
 
         vAlertPubKey = ParseHex("044a298ea107486f12d1dfa66ec6bf82b1341f4818e7298b2352a7aa5a21545a2f33472dd1e749f24f92e6d846880bc5d362cf040dcb5d7025d00034c71e74988f");
         nDefaultPort = 36003;
-        bnProofOfWorkLimit = ~uint256(0) >> 20;
+        bnProofOfWorkLimit = ~uint256(0) >> 1;
         nSubsidyHalvingInterval = 400000;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
@@ -160,14 +160,14 @@ public:
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
-        fRequireRPCPassword = true;
-        fMiningRequiresPeers = true;
-        fAllowMinDifficultyBlocks = false;
-        fDefaultConsistencyChecks = false;
-        fRequireStandard = true;
-        fMineBlocksOnDemand = false;
-        fSkipProofOfWorkCheck = false;
-        fTestnetToBeDeprecatedFieldRPC = false;
+//        fRequireRPCPassword = true;
+//        fMiningRequiresPeers = true;
+//        fAllowMinDifficultyBlocks = false;
+//        fDefaultConsistencyChecks = false;
+//        fRequireStandard = true;
+//        fMineBlocksOnDemand = false;
+//        fSkipProofOfWorkCheck = false;
+//        fTestnetToBeDeprecatedFieldRPC = false;
 
         nPoolMaxTransactions = 3;
         strSporkKey = "045fdc1d5796a4cc3ec7b93de854747f91ac8c44b150a37a45fe7b115e19463f902639ac385a7262423d5ac2e5fcea81a403525b25e56c6ff6d6020ff97b9bff57";
