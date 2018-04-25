@@ -67,7 +67,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 	(  100000, uint256("0x9598de5bf8c1f3c381ad080109272ff6735460f6a4a31b661deb111a11f66738"))
 	(  110000, uint256("0xdee33939bfc358414150952169cd53d66ddad4068e63739dfac3d90706cedc09"))
 	(  120000, uint256("0x30b31153fead2687b57e1f4b1cf77a0e2f4cfd086d4e3375ec49684ae0cdc2fe"))
-/*	(  126001, uint256("0x61c15b9cd41dbad9c805117b9097198252f0135894d936cd1a93e056a3efbbfd"))*/
+	(  126001, uint256("0xec88077317f3c17b9931221d16e2d40eb6c18f9e1d59186e67147bd93a965112"))
         ;
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
@@ -160,14 +160,14 @@ public:
 
         convertSeed6(vFixedSeeds, pnSeed6_main, ARRAYLEN(pnSeed6_main));
 
-//        fRequireRPCPassword = true;
-//        fMiningRequiresPeers = true;
-//        fAllowMinDifficultyBlocks = false;
-//        fDefaultConsistencyChecks = false;
-//        fRequireStandard = true;
-//        fMineBlocksOnDemand = false;
-//        fSkipProofOfWorkCheck = false;
-//        fTestnetToBeDeprecatedFieldRPC = false;
+        fRequireRPCPassword = true;
+        fMiningRequiresPeers = true;
+        fAllowMinDifficultyBlocks = true;
+        fDefaultConsistencyChecks = false;
+        fRequireStandard = true;
+        fMineBlocksOnDemand = false;
+        fSkipProofOfWorkCheck = false;
+        fTestnetToBeDeprecatedFieldRPC = false;
 
         nPoolMaxTransactions = 3;
         strSporkKey = "045fdc1d5796a4cc3ec7b93de854747f91ac8c44b150a37a45fe7b115e19463f902639ac385a7262423d5ac2e5fcea81a403525b25e56c6ff6d6020ff97b9bff57";
