@@ -67,7 +67,7 @@ static Checkpoints::MapCheckpoints mapCheckpoints =
 	(  100000, uint256("0x9598de5bf8c1f3c381ad080109272ff6735460f6a4a31b661deb111a11f66738"))
 	(  110000, uint256("0xdee33939bfc358414150952169cd53d66ddad4068e63739dfac3d90706cedc09"))
 	(  120000, uint256("0x30b31153fead2687b57e1f4b1cf77a0e2f4cfd086d4e3375ec49684ae0cdc2fe"))
-	(  126001, uint256("0xec88077317f3c17b9931221d16e2d40eb6c18f9e1d59186e67147bd93a965112"))
+/*	(  126001, uint256("0xec88077317f3c17b9931221d16e2d40eb6c18f9e1d59186e67147bd93a965112"))*/
         ;
 static const Checkpoints::CCheckpointData data = {
         &mapCheckpoints,
@@ -116,7 +116,7 @@ public:
 
         vAlertPubKey = ParseHex("044a298ea107486f12d1dfa66ec6bf82b1341f4818e7298b2352a7aa5a21545a2f33472dd1e749f24f92e6d846880bc5d362cf040dcb5d7025d00034c71e74988f");
         nDefaultPort = 36003;
-        bnProofOfWorkLimit = ~uint256(0) >> 20;
+        bnProofOfWorkLimit = ~uint256(0) >> 1;
         nSubsidyHalvingInterval = 400000;
         nEnforceBlockUpgradeMajority = 750;
         nRejectBlockOutdatedMajority = 950;
@@ -162,7 +162,7 @@ public:
 
         fRequireRPCPassword = true;
         fMiningRequiresPeers = true;
-        fAllowMinDifficultyBlocks = false;
+        fAllowMinDifficultyBlocks = true;
         fDefaultConsistencyChecks = false;
         fRequireStandard = true;
         fMineBlocksOnDemand = false;
